@@ -241,7 +241,7 @@ def createCSV(filepath):
 
     # lista dei campi del foglio csv
     fieldnames = ['object', 'collection', 'nVert', 'nFace',\
-                  'totSurface', 'Vol', 'planarity', 'objType',\
+                  'totSurface', 'Vol', 'planarity',
                   'mediaVX', 'mediaVY', 'mediaVZ',\
                   'varVX', 'varVY', 'varVZ',\
                   'mediaNX', 'mediaNY', 'mediaNZ',\
@@ -257,7 +257,8 @@ def createCSV(filepath):
                   'XP_YN_ZN_x', 'XP_YN_ZN_y', 'XP_YN_ZN_z',\
                   'XP_YN_ZP_x', 'XP_YN_ZP_y', 'XP_YN_ZP_z',\
                   'XP_YP_ZN_x', 'XP_YP_ZN_y', 'XP_YP_ZN_z',\
-                  'XP_YP_ZP_x', 'XP_YP_ZP_y', 'XP_YP_ZP_z'] 
+                  'XP_YP_ZP_x', 'XP_YP_ZP_y', 'XP_YP_ZP_z',\
+                  'objType'] 
     
     writer = csv.DictWriter(csvFile, fieldnames=fieldnames)
     writer.writeheader()
@@ -566,7 +567,7 @@ def main(context):
 
             # --- RIEMPIMENTO DIZIONARIO ---
             meshInfo = {'object': obj.name, 'collection': colName, 'nVert': nVerts, 'nFace': nFaces, 
-                        'totSurface': round(totSurface,3), 'Vol': round(volume,3), 'planarity': round(planarity,3), 'objType': obj['Object Type'],\
+                        'totSurface': round(totSurface,3), 'Vol': round(volume,3), 'planarity': round(planarity,3),\
                         'mediaVX': round(x_vertsAvg,3), 'mediaVY': round(y_vertsAvg,3), 'mediaVZ': round(z_vertsAvg,3),\
                         'varVX': round(x_vertsStDev,3), 'varVY': round(y_vertsStDev,3), 'varVZ': round(z_vertsStDev,3),\
                         'mediaNX': round(x_normalsAvg,3), 'mediaNY': round(y_normalsAvg,3), 'mediaNZ': round(z_normalsAvg,3),\
@@ -582,7 +583,8 @@ def main(context):
                         'XP_YN_ZN_x': abs(round(avg_XP_YN_ZN_x,3)), 'XP_YN_ZN_y': abs(round(avg_XP_YN_ZN_y,3)), 'XP_YN_ZN_z': abs(round(avg_XP_YN_ZN_z,3)),\
                         'XP_YN_ZP_x': abs(round(avg_XP_YN_ZP_x,3)), 'XP_YN_ZP_y': abs(round(avg_XP_YN_ZP_y,3)), 'XP_YN_ZP_z': abs(round(avg_XP_YN_ZP_z,3)),\
                         'XP_YP_ZN_x': abs(round(avg_XP_YP_ZN_x,3)), 'XP_YP_ZN_y': abs(round(avg_XP_YP_ZN_y,3)), 'XP_YP_ZN_z': abs(round(avg_XP_YP_ZN_z,3)),\
-                        'XP_YP_ZP_x': abs(round(avg_XP_YP_ZP_x,3)), 'XP_YP_ZP_y': abs(round(avg_XP_YP_ZP_y,3)), 'XP_YP_ZP_z': abs(round(avg_XP_YP_ZP_z,3))}
+                        'XP_YP_ZP_x': abs(round(avg_XP_YP_ZP_x,3)), 'XP_YP_ZP_y': abs(round(avg_XP_YP_ZP_y,3)), 'XP_YP_ZP_z': abs(round(avg_XP_YP_ZP_z,3)),\
+                        'objType': obj['Object Type']}
 
             meshesData[obj.name] = meshInfo
 
