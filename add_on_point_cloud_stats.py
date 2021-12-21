@@ -5,7 +5,7 @@
 bl_info = {
     "name": "Point Cloud Stats",
     "author": "nebuchadnezzar",
-    "version": (1, 5),
+    "version": (1, 5, 1),
     "blender": (2, 90, 0),
     "location": "Scene > Point Cloud Stats",
     "description": "Retrieves meshes informations, saves them in a CSV file and creates a collection of 'Pills' that summarizes them.",
@@ -640,7 +640,9 @@ class CreateCSVOperator(bpy.types.Operator):
     bl_idname = "scene.select_dir"
     bl_label = "Export to CSV"
     bl_description = "Export the scanned data into a CSV file"
-    filepath = bpy.props.StringProperty(subtype="DIR_PATH")
+    # ":" e non "=", dalla 2.93 è stata introdotta una nuova sottoclasse bpy.props._PropertyDeferred 
+    # che richiede questo accorgimento nell'assegnazione delle property 
+    filepath : bpy.props.StringProperty(subtype="DIR_PATH")
  
     def execute(self, context):
         writeCSV(self.filepath)
