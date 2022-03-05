@@ -1,6 +1,8 @@
 # Point Cloud Stats - Blender add-on
 This Blender add-on is able to retrieve geometrical data from meshes in a collection, sinthetyze them using central tendencies, dispersion indexes and inertia tensor and esport it in a .csv file.
 
+This add-on was developed for my bechelor thesis.
+
 ## Calculated data for each mesh
 Every spatial information is calculated in (x, y, z):
 * vertices number and position;
